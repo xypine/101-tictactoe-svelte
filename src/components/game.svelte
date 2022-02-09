@@ -13,6 +13,7 @@
         },
     ];
     let current;
+    let previewIndex;
     let winner;
     $: current = history[history.length - 1];
     $: if(current){
@@ -53,19 +54,19 @@
 </script>
 
 <main>
-    <div class="game">
+    <div class="game" on:mouseover={ ()=>{previewIndex = null} } on:focus={null} >
         <div class="game-history">
-            <HistoryManager history={history} rollbackHistoryCallback={ rollbackHistory } winner={winner} />
+            <HistoryManager history={history} rollbackHistoryCallback={ rollbackHistory } winner={winner} bind:previewIndex />
         </div>
-        <div class="game-board">
-            <Board squares={current.squares} handleClick={ handleClick } winner={winner} />
+        <div class="game-board {previewIndex ? 'preview' : ''}">
+            <Board squares={previewIndex ? history[previewIndex].squares : current.squares} handleClick={ handleClick } winner={winner} />
         </div>
         <div class="game-info">
             <div>{status}</div>
             <ol><!--TODO */}--></ol>
         </div>
     </div>
-</main>''
+</main>
 
 <style>
     

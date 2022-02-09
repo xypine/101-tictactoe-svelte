@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { scale } from "svelte/transition";
     export let style;
     export let onClick;
     export let value;
@@ -6,7 +7,7 @@
 
 <button style={style} on:click={onClick} class="square">
     {#if value != null}
-        {value}
+        <div transition:scale>{value}</div>
     {/if}
 </button>
 

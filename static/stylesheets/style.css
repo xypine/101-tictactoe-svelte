@@ -133,6 +133,14 @@ ol, ul {
   background: #2d2d2d;
 }
 
+.game-board {
+  transition: filter 500ms;
+}
+
+.preview {
+  filter: opacity(0.4);
+}
+
 
 @media screen and (max-width: 370px) {
   :root {
