@@ -21,7 +21,8 @@
     let status;
     $: if (winner) {
       status = 'Winner: ' + winner;
-    } else {
+    }
+    else if(current.xIsNext != null) {
       status = 'Next player: ' + (isXnext() ? 'X' : 'O');
     }
 
