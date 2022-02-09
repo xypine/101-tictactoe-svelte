@@ -1,0 +1,153 @@
+/* initialize css variables */
+:root {
+  --game-scale: 2;
+}
+/*                          */
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #191919;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Sensible link colors for a dark theme */
+a {
+  color: #9e9eff;
+}
+
+a:active {
+  color: #ff9c9e;
+}
+
+a:visited {
+  color: #d0acf0;
+}
+
+.madeBy {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  opacity: 0.8;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: var(--bg, #fff);
+  color: white;
+  border: 1px solid #999;
+  float: left;
+  font-size: calc(24px * var(--game-scale));
+  font-weight: bold;
+  line-height: calc(34px * var(--game-scale));
+  height: calc(34px * var(--game-scale));
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: calc(34px * var(--game-scale));
+  cursor: pointer;
+  transition: background 500ms;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.game-info {
+  margin-left: 20px;
+  flex: 1; /* Ensure the board stays centered */
+}
+
+.game-history {
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-right: 20px; /* Ensure the board stays centered */
+}
+
+.history-container {
+  /* Prevent the history from affecting the positions of other game components */
+  height: 0;
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.history-element {
+  border: none;
+  background: var(--bg, #2d2d2d);
+  border: 2px solid var(--bg, #2d2d2d);
+  color: white;
+  padding: .25em 1em;
+  margin:  .25em 0;
+  border-radius: .25em;
+
+  transition: all 500ms;
+  transition-property: background, border;
+}
+
+.history-button {
+  cursor: pointer;
+  background: #222222;
+  transition: background 250ms;
+}
+
+.history-button:hover {
+  background: #2d2d2d;
+}
+
+
+@media screen and (max-width: 370px) {
+  :root {
+    --game-scale: 1;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  :root {
+    --game-scale: 1.25;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --game-scale: 1.5;
+  }
+}
