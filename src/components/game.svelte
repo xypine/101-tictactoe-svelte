@@ -15,7 +15,7 @@
     let current;
     let previewIndex;
     let winner;
-    $: current = history[history.length - 1];
+    $: current = previewIndex ? history[previewIndex] : history[history.length - 1];
     $: if(current){
         winner = calculateWinner(current.squares);
     }
@@ -59,7 +59,7 @@
             <HistoryManager history={history} rollbackHistoryCallback={ rollbackHistory } winner={winner} bind:previewIndex />
         </div>
         <div class="game-board {previewIndex ? 'preview' : ''}">
-            <Board squares={previewIndex ? history[previewIndex].squares : current.squares} handleClick={ handleClick } winner={winner} />
+            <Board squares={current.squares} handleClick={ handleClick } winner={winner} />
         </div>
         <div class="game-info">
             <div>{status}</div>
